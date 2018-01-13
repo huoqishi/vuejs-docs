@@ -1,0 +1,14 @@
+html, body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  list-style: none;
+}
+button {
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+  outline: none;
+}

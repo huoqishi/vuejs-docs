@@ -1,0 +1,152 @@
+<!-- http://imakewebthings.com/deck.js/#badass -->
+<!-- http://lab.hakim.se/reveal-js/#/18 -->
+<!-- http://kpuputti.github.io/perkele.js/examples/appcache-pita/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>路由教程演示动画</title>
+  <style>
+    #box {
+      position: fixed;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+    }
+    .xx {
+      position: fixed;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      z-index: 998;
+      opacity: 0;
+     }
+     .app-code {
+      position: fixed;
+      width: 200px;
+      top: 5px;
+      /*right: 10px;*/
+      left: 1024px;
+      transition: 1s;
+      /*transform: translateX(1024px);*/
+     }
+     /*.app-code*/
+     .app-code.inhtml {
+       transition: 1s;
+       left: 5px;
+       /*transform: translateX(5px);*/
+       /*transform: translateX(1024px) scale(1.4);*/
+     }
+     .app-code.scale {
+       /*transition: .5s;*/
+       transform: translateX(5px) scale(0);
+     }
+     .signin-code {
+      position: fixed;
+      width: 200px;
+      top: 250px;
+      /*right: 10px;*/
+      left: 1024px;
+      transition: 1s;
+     }
+     
+
+     .app-preview {
+       position: fixed;
+       top:0;
+       left: 0;
+       /*opacity: 0;*/
+       width: 300px;
+       /*height: 2px;*/
+       transform: scale(0);
+       transition: .5s;
+     }
+     .app-preview.show {
+       transition: .5s;
+       transform: scale(1);
+     }
+  </style>
+</head>
+<body>
+  <div id="box"  tabindex="1">
+    <input class="xx" type="text" @keyup.down="down" @keyup.up="up">
+    <!-- App.vue代码 -->
+    <div class="app-code">
+      <img src="./images/app-code.png" alt="">
+    </div>
+    <div class="app-code" :class="{inhtml,scale}">
+      <img src="./images/app-code.png" alt="">
+    </div>
+    <div class="signin-code"><img src="./images/signin-code.png" alt=""></div>
+    <div class="signin-code"><img src="./images/signin-preview.png" alt=""></div>
+
+    <!-- App.vue渲染结果 -->
+    <div class="app-preview" :class="{show}">
+      <img src="./images/app-preview.png" alt="">
+    </div>
+  </div>
+</body>
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<!-- <script src="./jquery.min.js"></script> -->
+<!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+<script>
+  var arr = ['inhtml', 'scale', 'show']
+  var data = {
+    count: 0
+  }
+  arr.forEach(item => {
+    data[item] = false
+  })
+  var vm = new Vue({
+    el: '#box',
+    data: data,
+    methods: {
+      down () {
+        console.log(1)
+        // var a = document.querySelector('.' + arr[this.count])
+        // if (!a) return
+        var result = this[arr[this.count]]
+        if (result || result === undefined) {
+          return
+        }
+        this[arr[this.count]] = true
+        this.count += 1
+      },
+      up () {
+        console.log(2)
+        if (this.count <= 0) return
+        var a = document.querySelector('.' + arr[this.count - 1])
+        if (!a) return
+        // a.transition = '0'
+        var result = this[arr[this.count - 1]]
+        if (!result) {
+          return
+        }
+        this[arr[this.count - 1]] = false
+        this.count -= 1
+      }
+    }
+  })
+  // var $ = document.querySelector.bind(document)
+  // var aniArr = [] // {dom: 'animation'}
+  // var oAppCodeClone = $('')
+  // aniArr.push({
+
+  // })
+  
+  // document.body.onkeydown = function (e) {
+  //   console.log(e.keyCode)
+  //   var code = e.keyCode
+  //   if (code == 39 || code == 40) {
+  //     if (aniArr.length > 0) {
+  //       aniArr.shift()()
+  //     }
+  //   }
+  // }
+</script>

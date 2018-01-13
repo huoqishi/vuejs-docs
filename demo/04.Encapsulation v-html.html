@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>封装一个v-html属性用于呈现数据</title>
+</head>
+<body>
+  <h1>封装一个v-html属性用于呈现数据</h1>
+  <p>需要实现单向向数据绑定的效果</p>
+  <span v-html="age"></span>
+  <button v-html="name"></button>
+</body>
+</html>
+<!-- 需求: 
+  1. 希望给元素添加v-html属性后，就能自动将和v-html属性值同名的变量赋值给该元素的innerHTML
+  实现:
+  假设页面要呈现的数据在data对象中，定义一个构造函数，用构造函数的实例来代理data的所有属性
+  1. 定义构造函数DataBinding, 将data作为参数传入
+  2. 获取 DOM 中所有 v-html 属性的元素。
+  3. 获取 这些元素的 v-html 属性值
+  4. 从 data 中找出和这些属性值名字一样的属性, 将 data 中的这些属性赋值到 对应的元素的innerHTML上
+  5. 使用 Object.defineProperty 方法来代理 data 的所有属性 .
+  6. 当想要获取 data.name 属性值，直接使用 实例.name
+  7. 当给实例的 name 属性赋值时，在set方法中将这个值赋值给data.name
+ -->
+<script>
+  /**
+   * 封装
+   */
+   function DataBinding (options) {
+      var data = options.data
+      var vHtmls = document.querySelectorAll('[v-html]') // 所有有v-html属性的元素
+      setVal()
+      function setVal () {
+        for (var i = 0; i < vHtmls.length; i++) {
+          var item = vHtmls[i]
+          var itemVHtml = item.getAttribute('v-html') // 获取元素的v-html属性值
+          item.innerHTML = data[itemVHtml]
+        }
+      }
+
+      // 遍历data, 让
+      for (var key in data) {
+        Object.defineProperty(this, key, {
+          get: function () {
+            return data[key]
+          },
+          set: function (newVal) {
+            data[key] = newVal
+            setVal()
+          }
+        })
+      }
+   }
+</script>
+<script>
+  // 使用上面封装的功能
+  var d = new DataBinding({
+    data: {name: '小明', age: 18}
+  })
+</script>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>Document</title>
+</head>
+<body>
+  <!-- skech ,设置， 还有个专门写html的工具  -->
+  <div id="app" class="g-box">
+    <h1>程序员问卷</h1>
+    <hr>
+    <!--轮播图-->
+    <div class="g-carousel">
+      <div class="carousel">
+        <!--v-bind给style赋值的方式-->
+        <!--v-bind:style="{color: '#ff0', fontSize: '98px''}"-->
+        <div class="carousel_wrap animate"
+        v-bind:style="{ transform: 'translate3d('+ X +'px,0,0)' }">
+          <img v-for="item in imgs"
+          v-bind:src="item"
+          class="carousel_wrap_img" 
+          alt="">
+        </div>
+        <!--<div class="arrow-left arrow"  v-on:click=""></div>-->
+        <!-- v-on:  可以简写成@ -->
+        <div class="arrow-left arrow"  @click="prev"></div>
+        <div class="arrow-right arrow"
+        @click="next"
+        ></div>
+      </div>
+    </div>
+    <div class="g-qs">
+      <div class="g-qs-item">
+        <h3>江湖好友，报上名来</h3>
+        <ul>
+          <li>
+            <input type="text" v-model="qs.username">
+          </li>
+        </ul>
+      </div>
+      <div class="g-qs-item">
+        <h3>你现交女朋友/男朋友了吗？</h3>
+        <ul>
+          <li>
+            <input name="friend" id="friend-a" type="radio" 
+            value="0"
+            v-model="qs.hasFriend"
+            ><label class="g-qs-item-label" for="friend-a" >单身狗一只</label>
+          </li>
+          <li>
+            <input name="friend" id="friend-b" type="radio" 
+            value="1"
+            v-model="qs.hasFriend"
+            ><label class="g-qs-item-label" for="friend-b" >有女朋友/男朋友</label>
+          </li>
+          <li>
+            <input name="friend" id="friend-c" type="radio" 
+            value="2"
+            v-model="qs.hasFriend"
+            ><label class="g-qs-item-label" for="friend-c" >这问题问得我好伤心啊0.0</label>
+          </li>
+          <li>
+            <input name="friend" id="friend-d" type="radio" 
+            value="3"
+            v-model="qs.hasFriend"
+            ><label class="g-qs-item-label" for="friend-d" >拒绝回答</label>
+          </li>
+        </ul>
+      </div>
+      <div class="g-qs-item">
+        <h3>亲，今年多大了</h3>
+        <ul>
+          <li>
+            <input name="age" id="age-a" type="radio" 
+            value="-1"
+            v-model="qs.howAge"
+            ><label class="g-qs-item-label" for="age-a">亲，这么隐私的问题，人家怎么好意思回答呀！</label>
+          </li>
+          <li>
+            <!--<input name="age" type="radio"  id="age-b" >-->
+            <label class="select g-qs-item-label" for="age-b">
+              我今年
+            </label>
+            <!--v-bind: 简写为 : 冒号-->
+            <select name="" for="age-b"
+             v-model="qs.howAge">
+               <option v-for="item in 102"
+               :value="item - 2"
+               >{{item - 2}}岁</option>
+            </select>  
+            <label class="select" for="age-b">岁</label>
+          </li>
+        </ul>
+      </div>
+      <div class="g-qs-item">
+        <h3>亲，何时参加工作的</h3>
+        <ul>
+          <li>
+            <input name="join_date" type="radio" id="work"
+            value="-1"
+            v-model="qs.whenWork"
+             ><label class="g-qs-item-label" for="work">还没有工作，哈哈！</label></li>
+          <li>
+            <li>
+            <!--<input name="join_date" type="radio">-->
+            <label class="select g-qs-item-label" for="work-b">我在</label>
+            <select name="" for="age-b"
+            v-model="qs.whenWork"
+            >
+               <option v-for="item in 200">
+                 {{ 1990 + item}}
+               </option>
+                <option >-1</option>
+            </select>
+            <label class="select" for="work-b">开始战斗的</label>
+          </li>
+        </ul>
+      </div>
+      <div class="g-qs-item">
+        <h3>除了写代码，你还喜欢做什么?</h3>
+        <ul>
+          <li>
+            <input name="hobby" id="hobby-a" type="checkbox" 
+            value="chifan"
+            v-model="qs.hobby"
+            > <label class="g-qs-item-label" for="hobby-a">吃饭</label>
+          </li>
+          <li>
+            <input name="hobby" id="hobby-b" type="checkbox" 
+            value="shuijiao"
+            v-model="qs.hobby"
+            > <label class="g-qs-item-label" for="hobby-b">睡觉</label>
+          </li>
+          <li>
+            <input name="hobby" id="hobby-c" type="checkbox"
+            value="dadoudou"
+            v-model="qs.hobby"> <label class="g-qs-item-label" for="hobby-c">打豆豆</label>
+          </li>
+          <li>
+            <input name="hobby" id="hobby-d" type="checkbox"
+            value="xuexi"
+            v-model="qs.hobby"> <label class="g-qs-item-label" for="hobby-d">学习</label>
+          </li>
+          <li>
+            <input name="hobby" id="hobby-e" type="checkbox"
+            value="changge"
+            v-model="qs.hobby"> <label class="g-qs-item-label" for="hobby-e">唱歌</label>
+          </li>                    
+        </ul>
+      </div>
+      <div class="g-qs-item">
+        <h3>给我们的建议</h3>
+        <textarea ></textarea>
+      </div>
+      <div class="g-qs-item">
+        <h3>同意共产主义思想，毛泽东思想，邓小平理论</h3>
+        <ul>
+          <li>
+            <input id="agree" type="checkbox"
+            v-model="isAgree">
+            <label class="g-qs-item-label select" for="agree">勾选则表示同意</label>
+            <a href="javascript: alert('骗你的，什么都没有，哈哈！')">查看协议详细内容</a>
+          </li>
+        </ul>
+      </div>
+      <div class="g-qs-item">
+        <button>提交</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<!-- 1.引包-->
+<script src="./vue.js"></script>
+<script src="./index.js"></script>

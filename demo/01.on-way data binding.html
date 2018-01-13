@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>单向数据绑定</title>
+</head>
+<body>
+  <h1>js中有个变量 age 用于存储年龄，其值会在下方显示</h1>
+  <p>我是中国人，我爱自己的祖国</p>
+  <p>我今年: <span id="age-1">10</span> 岁了</p>
+  <p>我是个: <span id="age-2">10</span> 岁的小男孩</p>
+</body>
+</html>
+<script>
+  // 尝试在Console中给window.age赋值,看看会发生什么?
+  var tmp = 10
+  Object.defineProperty(window, 'age', {
+    get: function () {
+      return tmp
+    },
+    set: function (newVal) {
+      console.log(998)
+      tmp = newVal
+      document.querySelector('#age-1').innerHTML = tmp
+      document.querySelector('#age-2').innerHTML = tmp
+    }
+  })
+</script>

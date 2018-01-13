@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>路由教程演示动画</title>
+  <style>
+    img {
+      width: 100%;
+    }
+     .app-code {
+      position: fixed;
+      width: 200px;
+      top: 5px;
+      right: 10px;
+     }
+     /*.app-code*/
+     .app-preview {
+       position: fixed;
+       top:0;
+       left: 0;
+       /*opacity: 0;*/
+       width: 1px;
+       height: 2px;
+     }
+  </style>
+</head>
+<body>
+  <!-- App.vue代码 -->
+  <div class="app-code">
+    <img src="./images/app-code.png" alt="">
+  </div>
+  <!-- App.vue渲染结果 -->
+  <div class="app-preview">
+    <img src="./images/app-preview.png" alt="">
+  </div>
+</body>
+</html>
+<script src="./jquery.min.js"></script>
+<!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+<script>
+  var aniArr = []
+  var $appCodeClone = $(".app-code").clone()
+  $('body').append($appCodeClone)
+  aniArr.push($appCodeClone.animate.bind($appCodeClone,{left: '10px'}, 1500))
+  aniArr.push($appCodeClone.animate.bind($appCodeClone,{width:0, height: 0}, 1000))
+  var $appPreview = $('.app-preview')
+  aniArr.push($appPreview.animate.bind($appPreview, {width: '300px', height: '300px'}))
+  
+
+  $(document.body).on('keydown',function (e) {
+    console.log(e.keyCode)
+    var code = e.keyCode
+    if (code == 39 || code == 40) {
+      if (aniArr.length > 0) {
+        aniArr.shift()()
+      }
+    }
+  })
+</script>

@@ -1,0 +1,14 @@
+<style></style>
+<template>
+  <div>
+    <h1>我是学生列表组件</h1>
+    <ul>
+      <li>我是小明，学号18</li>
+      <li>我是小红，学号19</li>
+      <li>我是小天，学号20</li>
+      <li>我是小日，学号21</li>
+      <li>我是小月，学号22</li>
+    </ul>
+  </div>
+</template>
+<script></script>

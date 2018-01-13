@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Object.defineProperty</title>
+</head>
+<body>
+  <h1>Object.defineProperty</h1>
+  <p>Object.defineProperty的作用是给对象添加一个属性</p>
+</body>
+</html>
+<script>
+  var obj = {} // 一个对象
+  // 给上面 obj 对象很简单, obj.name = 10, 就给 obj 添加了一个name属性且值为10
+
+  /**
+   * Object.defineProperty的作用是给对象添加一个属性
+   * @param  {Object} 需要被添加属性的对象
+   * @param  {string} 需要添加的属性名
+   * @param  {Object} 其他参数, 有名为get和set的两个属性，它们都是方法
+   */
+  Object.defineProperty(obj, 'name', {
+    get: function () {
+      // return 10
+      // return '嘻嘻'
+      return {a: 1, b: 2}
+    },
+    set: function (newVal) {
+      console.log(newVal)
+    }
+  })
+
+  // 使用这种繁琐的方式定义的属性有什么不一样呢?
+  // 不同点在于: 
+  // 1. 上面的Object.defineProperty执行之后，无论在代码的何处想要使用 obj.name 属性的值时,
+  // 所真正得到的值永远是上面get方法的返回值, 不会是其他值!
+  // 2. 无论在代码的何处，想要给 obj.name 属性重新赋值是，上面的set方法都会被调用, 并且set方法的形参就是这个被赋予的新值。*注意: 仅仅是调用了set方法而已，obj.name 并不会因此而改变，它还是只取决于 get 方法的返回值 *
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>属性代理</title>
+</head>
+<body>
+  <h1>利用Object.defineProperty实现属性代理</h1>
+  <p></p>
+</body>
+</html>
+<script>
+  var data = {}
+  var obj = {}
+  Object.defineProperty(obj, 'name', {
+    get: function () {
+      // return 10
+      // return '嘻嘻'
+      // return {a: 1, b: 2}
+      return data.name
+    },
+    set: function (newVal) {
+      // console.log(newVal)
+      data.name = newVal
+      document.querySelector('p').innerHTML = data.name
+    }
+  })
+
+  // 上述代码的效果：
+  // 获取obj.name的值实际是获取的data.name属性的值
+  // 给obj.name的值实际是设置的是data.name的值
+  // 相当于obj 代理了 data.name 属性
+
+  // 思考: 如果想让obj代理 data的所有属性该怎么做?
+</script>
