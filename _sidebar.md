@@ -3,8 +3,9 @@
 ### Vue 快速学习
 
 - 数据驱动思想
+
   - [单向数据绑定](data-bind.md)
-  - [双向数据绑定](two-way-data-bind.md)
+  - [双向数据绑定](two-way-data-binding.md)
 
 - 初识 Vue
 
@@ -41,7 +42,7 @@
 - 其他(暂不分类)
 
   - [混合 (mixins)](mixins.md)
-  - [[渲染函数 & JSX 语法](https://cn.vuejs.org/v2/guide/render-function.html)]
+  - [渲染函数 & JSX 语法](https://cn.vuejs.org/v2/guide/render-function.html)
   - [插槽slot](slot.md)
 
   ​

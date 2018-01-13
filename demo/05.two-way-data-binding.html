@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>双向数据绑定</title>
+  <style>
+  input {
+    height: 40px;
+    width: 500px;
+    font-size: 18px;
+  }
+  .royal {
+    color: #f0f;
+  }
+  </style>
+</head>
+<body>
+  <h1 class="royal">1. 尝试修改全局变量 vm 的 msg 属性值，并观察 input 框的变化</h1>
+  <h1 class="royal">2. 尝试在 input 框架中输入一些内容，然后再查看 vm.msg 的值</h1>
+  <hr>
+  <h1>双向数据绑定演示 demo</h1>
+  <div class="box">
+    <input type="text" v-model="msg">
+  </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+  var vm = new Vue({
+    el: '.box',
+    data: {
+      msg: '我是中国人，我爱自己的祖国'
+    }
+  })
+</script>

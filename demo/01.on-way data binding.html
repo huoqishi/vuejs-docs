@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>单向数据绑定</title>
+  <style>
+    .royal {
+    color: #f0f;
+  }
+  </style>
 </head>
 <body>
-  <h1>js中有个变量 age 用于存储年龄，其值会在下方显示</h1>
+  <h1 class="royal">1. 尝试在调试工具中修改 age 变量的值, 并观察页面的变化</h1>
+  <hr>
+  <h1>全局变量 age 用于存储年龄，其值会在下方显示</h1>
   <p>我是中国人，我爱自己的祖国</p>
   <p>我今年: <span id="age-1">10</span> 岁了</p>
   <p>我是个: <span id="age-2">10</span> 岁的小男孩</p>
@@ -19,7 +26,6 @@
       return tmp
     },
     set: function (newVal) {
-      console.log(998)
       tmp = newVal
       document.querySelector('#age-1').innerHTML = tmp
       document.querySelector('#age-2').innerHTML = tmp
