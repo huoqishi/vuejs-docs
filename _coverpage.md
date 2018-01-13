@@ -4,7 +4,7 @@
 
 > 作者：王朝华(火骑士空空)
 
-- 联系：wangchao110@foxmail.com
+- 联系：wangchaohua110@foxmail.com
 
 [GitHub](https://github.com/huoqishi/vuejs-docs)
 [Get Started](README)
