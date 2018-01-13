@@ -15,13 +15,12 @@
 - 基础
 
   - [数据绑定](vue-data-bind.md)
-  - [属性绑定](attr-bind.md)
   - [class & style 样式属性绑定](class&style.md)
   - [注册事件](register-events.md)
   - [条件渲染](condition-render.md)
   - [列表渲染](list-render.md)
   - [表单控件双向绑定](form-control-two-way-data-bind.md)
-  - [基础总结]()
+  - [基础总结](basic-summary.md)
 
 - 进阶
 
