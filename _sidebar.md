@@ -20,6 +20,7 @@
   - [条件渲染](condition-render.md)
   - [列表渲染](list-render.md)
   - [表单控件双向绑定](form-control-two-way-data-bind.md)
+  - Vue 的开发调试
   - [基础总结](basic-summary.md)
 
 - 进阶

@@ -87,8 +87,8 @@ var app = new Vue({
 
 ```html
 <div class="el">
-  <div v-html="msg"><h1>Hello Word!</h1></div>
-  <div v-text="msg">$lt;h1$gt;Hello Word!$lt;/h1$gt;</div>
+  <div><h1>Hello Word!</h1></div>
+  <div>$lt;h1$gt;Hello Word!$lt;/h1$gt;</div>
 </div>
 ```
 
@@ -125,7 +125,7 @@ var app = new Vue({
 
 ```html
 <div class="el">
-  <img v-bind:src="path" src="./img/logo.png"/>
+  <img src="./img/logo.png"/>
 </div>
 ```
 
