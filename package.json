@@ -7,7 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "deploy": "git add -A && git commit -m \":cn:\" && git push && git push origin master:gh-pages"
+    "start": "docsify start . -c ssr.config.js",
+    "deploy": "now -p",
+    "push": "git add -A && git commit -m \":cn:\" && git push && git push origin master:gh-pages"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,20 @@
   "author": "huoqishi",
   "license": "MIT",
   "dependencies": {
-    "docsify": "^4.5.7"
+    "docsify-cli": "^4.2.0"
+  },
+  "now": {
+    "alias": "docsify",
+    "env": {
+      "NODE_ENV": "production",
+      "DEBUG": "docsify"
+    }
+  },
+  "docsify": {
+    "config": {
+      "basePath": "./docs/",
+      "loadSidebar": true,
+      "loadNavbar": true
+    }
   }
 }
