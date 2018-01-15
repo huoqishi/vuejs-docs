@@ -7,7 +7,9 @@ const renderer = new Renderer({
   template: readFileSync('./ssr/ssr.html', 'utf-8'),
   config: ssrConfig
 })
-// app.use(express.static(''))
+app.use('/demo', (req, res, next) => {
+  res.redirect('https://huoqishi.github.io/vuejs-docs/demo' + req.url)
+})
 app.use((req, res) => {
   console.log(req.url)
   renderer.renderToString(req.url)
