@@ -1,7 +1,8 @@
 const config = {
   // basePath: './docs',
   // basePath: 'http://huoqishi.github.io/vuejs-docs/docs',
-  basePath: 'http://huoqishi.oschina.io/vuejs-docs/docs',
+  // basePath: 'http://huoqishi.oschina.io/vuejs-docs/docs',
+  basePath: 'http://huoqishi.coding.me/vuejs-docs/',
   alias: {
     '/de-de/changelog': '/changelog',
     '/zh-cn/changelog': '/changelog'
