@@ -9,7 +9,7 @@
   "scripts": {
     "start": "docsify start . -c ssr.config.js",
     "deploy": "now -p",
-    "ssr": "rsync -av ./ --include=index.js --include=package.json --include=package-lock.json --include=ssr/*.* --exclude=*.* --exclude=**  root@sshali.huoqishi.net:/isc/huoqishi/vuejs-docs",
+    "ssr": "rsync -av ./ --include=index.js --include=package.json --include=package-lock.json --include=ssr  --exclude=/*  root@sshali.huoqishi.net:/isc/huoqishi/vuejs-docs",
     "push": "git add -A && git commit -m \":cn:\" && git push && git push origin master:gh-pages"
   },
   "repository": {
