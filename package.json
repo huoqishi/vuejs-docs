@@ -18,10 +18,12 @@
   "author": "huoqishi",
   "license": "MIT",
   "dependencies": {
-    "docsify-cli": "^4.2.0"
+    "docsify-cli": "^4.2.0",
+    "docsify-server-renderer": "^4.5.7",
+    "express": "^4.16.2"
   },
   "now": {
-    "alias": "docsify",
+    "alias": "vuejs-isc-isc",
     "env": {
       "NODE_ENV": "production",
       "DEBUG": "docsify"
