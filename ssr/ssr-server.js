@@ -8,7 +8,13 @@ const renderer = new Renderer({
   config: ssrConfig
 })
 app.use('/demo', (req, res, next) => {
-  res.redirect('https://huoqishi.github.io/vuejs-docs/demo' + req.url)
+  // res.send('ok')
+  // res.redirect('https://huoqishi.github.io/vuejs-docs' + req.url)
+  // res.writeHead(302, {
+  //   Location: 'https://huoqishi.github.io/vuejs-docs' + req.url
+  //   // Location: '/data-bind'
+  // })
+  res.send('<meta http-equiv="refresh" content="0; url=https://huoqishi.github.io/vuejs-docs' + req.url + '" /><h1>即将中转。。。</h1>')
 })
 app.use((req, res) => {
   console.log(req.url)
