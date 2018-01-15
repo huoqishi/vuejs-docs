@@ -4,7 +4,7 @@ const ssrConfig = require('./ssr.config')
 const readFileSync = require('fs').readFileSync
 const app = express()
 const renderer = new Renderer({
-  template: readFileSync('./ssr.html', 'utf-8'),
+  template: readFileSync('./ssr/ssr.html', 'utf-8'),
   config: ssrConfig
 })
 // app.use(express.static(''))
