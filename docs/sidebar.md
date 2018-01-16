@@ -20,13 +20,14 @@
   - [条件渲染](condition-render.md)
   - [列表渲染](list-render.md)
   - [表单控件双向绑定](form-control-two-way-data-bind.md)
-  - Vue 的开发调试
+  - [Vue 的开发调试](debug-tool.md)
   - [基础总结](basic-summary.md)
 
 - 进阶
 
-  - [计算属性&观察者](computed&watcher.md)
+  - [Vue中推荐的ajax库](ajax4vue.md)
   - [过滤器](filters.md)
+  - [计算属性&观察者](computed&watcher.md)
   - [过渡&动画](transition & animation.md)
   - [组件](component.md)
   - [路由](router.md)
